@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "guilefinances",
+    "slug": "guilefinances",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "guilefinances"
+}
