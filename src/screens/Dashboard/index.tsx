@@ -1,7 +1,7 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons'
 
 import * as S from './styles'
+import {HighlightCard} from '../../components/HighlightCard';
 
 export function Dashboard(){
     return(
@@ -18,6 +18,28 @@ export function Dashboard(){
                     <S.Icon name='power' />
                 </S.UserWrapper>
             </S.Header>
+            <S.HighLightCards 
+                
+                >
+                <HighlightCard 
+                title= 'Entradas'
+                amount="R$ 17.400,00"
+                lastTransaction='Última entrada dia 12 de abril'
+                type= 'up'
+                />
+                <HighlightCard 
+                title= 'Saídas'
+                amount="R$ 1.259,00"
+                lastTransaction='Última saída dia 03 de abril'
+                type='down'
+                />
+                <HighlightCard 
+                title= 'Total'
+                amount="R$ 16.141,00"
+                lastTransaction='01 à 16 de abril'
+                type='total'
+                />
+            </S.HighLightCards>
         </S.Container>
     )
 }
