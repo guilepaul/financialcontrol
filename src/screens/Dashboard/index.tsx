@@ -1,7 +1,7 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons'
 
 import * as S from './styles'
+import HighlightCard from '../../components/HighlightCard';
 
 export function Dashboard(){
     return(
@@ -18,6 +18,13 @@ export function Dashboard(){
                     <S.Icon name='power' />
                 </S.UserWrapper>
             </S.Header>
+            <S.HighLightCards 
+                
+                >
+                <HighlightCard />
+                <HighlightCard />
+                <HighlightCard />
+            </S.HighLightCards>
         </S.Container>
     )
 }
