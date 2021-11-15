@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as S from './styles'
 import {HighlightCard} from '../../components/HighlightCard';
+import {TransactionCard} from '../../components/TransactionCard';
 
 export function Dashboard(){
     return(
@@ -18,8 +19,7 @@ export function Dashboard(){
                     <S.Icon name='power' />
                 </S.UserWrapper>
             </S.Header>
-            <S.HighLightCards 
-                
+            <S.HighLightCards
                 >
                 <HighlightCard 
                 title= 'Entradas'
@@ -40,6 +40,11 @@ export function Dashboard(){
                 type='total'
                 />
             </S.HighLightCards>
+
+            <S.Transactions>
+                <S.Title>Listagem</S.Title>
+                <TransactionCard/>
+            </S.Transactions>
         </S.Container>
     )
 }
