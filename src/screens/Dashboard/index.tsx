@@ -2,8 +2,49 @@ import React from 'react';
 
 import * as S from './styles'
 import {HighlightCard} from '../../components/HighlightCard';
+import {TransactionCard, TransactionCardProps} from '../../components/TransactionCard';
+
+export interface DataListProps extends TransactionCardProps {
+    id: string;
+}
 
 export function Dashboard(){
+
+    const data : DataListProps[] = [
+        {
+        id: '1',
+        type: 'positive',
+        title:'Desenvolvimento de sites',
+        amount:'R$ 12.000,00',
+        category:{
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date:'13/04/2020'  
+    },
+        {
+        id: '2',
+        type: 'negative',
+        title:'Hamburgueria Pizzy',
+        amount:'R$ 59,00',
+        category:{
+            name: 'Alimentação',
+            icon: 'coffee'
+        },
+        date:'12/04/2020'  
+    },
+        {
+        id: '3',
+        type: 'negative',
+        title:'Aluguel apartamento',
+        amount:'R$ 1.200,00',
+        category:{
+            name: 'Casa',
+            icon: 'shopping-bag'
+        },
+        date:'11/04/2020'  
+    },
+]
     return(
         <S.Container>
             <S.Header >
@@ -18,8 +59,7 @@ export function Dashboard(){
                     <S.Icon name='power' />
                 </S.UserWrapper>
             </S.Header>
-            <S.HighLightCards 
-                
+            <S.HighLightCards
                 >
                 <HighlightCard 
                 title= 'Entradas'
@@ -40,6 +80,16 @@ export function Dashboard(){
                 type='total'
                 />
             </S.HighLightCards>
+
+            <S.Transactions>
+                <S.Title>Listagem</S.Title>
+                <S.TransactionList 
+                    data={data}
+                    keyExtractor={item => item.id}
+                    renderItem={({item}) => <TransactionCard data={item} />}
+                />
+                
+            </S.Transactions>
         </S.Container>
     )
 }
