@@ -1,27 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Input} from '../../components/Form/Input'
 import {Button} from '../../components/Form/Button'
+import {TransactionTypeButton} from '../../components/Form/TransactionTypeButton'
 
 import * as S from './styles';
 
 export function Register() {
-  return (
-      <S.Container>
-          <S.Header>
-              <S.Title>Cadastro</S.Title>
-          </S.Header>
-          <S.Form>
-            <S.Fields>
-                <Input
-                    placeholder="Nome"
+    const [transactionType, setTransactionType] = useState('');
+
+    function handleTransactionTypeSelect(type: 'up' | 'down') {
+        setTransactionType(type)
+    }
+
+    return (
+        <S.Container>
+            <S.Header>
+                <S.Title>Cadastro</S.Title>
+            </S.Header>
+            <S.Form>
+                <S.Fields>
+                    <Input
+                        placeholder="Nome"
+                        />
+                    <Input
+                        placeholder="Preço"
+                        />
+                    <S.TransactionTypes>
+                    <TransactionTypeButton
+                        type='up'
+                        title='Income'
+                        onPress={() => handleTransactionTypeSelect('up')}
+                        isActive={transactionType === 'up'}
                     />
-                <Input
-                    placeholder="Preço"
+                    <TransactionTypeButton
+                        type='down'
+                        title='Outcome'
+                        onPress={() => handleTransactionTypeSelect('down')}
+                        isActive={transactionType === 'down'}
                     />
-            </S.Fields>
-            <Button title="Enviar" />
-        </S.Form>
-      </S.Container>
-  );
+                    </S.TransactionTypes>
+                </S.Fields>
+                <Button title="Enviar" />
+            </S.Form>
+        </S.Container>
+    );
 }
